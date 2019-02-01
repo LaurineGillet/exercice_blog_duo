@@ -1,0 +1,160 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  list-style: none;
+  text-decoration: none;
+}
+main {
+  margin-left: 5%;
+}
+ul {
+  margin-left: 5%;
+}
+header {
+  background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url(../img/bamboo.jpg);
+  text-align: center;
+}
+header h1 {
+  color: #00796b;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 6em;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 700;
+}
+header nav {
+  font-variant: small-caps;
+}
+header nav ul li a {
+  text-decoration: none;
+}
+header nav li:hover {
+  background-color: #009688;
+}
+.container {
+  display: inline-flex;
+  margin-top: 3%;
+}
+.container .article {
+  width: 65vw;
+  height: 500px;
+  background: green;
+  min-width: 400px;
+}
+.container .aside {
+  width: 20vw;
+  margin-left: 5%;
+  max-height: 600px;
+  min-height: 200px;
+  min-width: 200px;
+  border: 4px #00796b solid;
+  position: fixed;
+  left: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+}
+.container .aside img {
+  width: 15vw;
+  margin-left: 12.5%;
+  margin-top: 12.5%;
+  height: auto;
+}
+.bouton {
+  color: #0000ff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.bouton:hover {
+  text-decoration: underline;
+}
+.texte {
+  border: 1px solid #333333;
+  background: #eeeeee;
+  padding: 10px;
+  color: #333333;
+}
+.texte:hover {
+  border: 1px solid #000000;
+  background: #cccccc;
+  color: #000000;
+}
+#about #separation {
+  border-right: 4px solid #10828c;
+}
+#about h2 {
+  margin-left: 40vw;
+}
+#about img {
+  width: 15vw;
+  height: auto;
+}
+form {
+  text-align: center;
+}
+form input {
+  height: 5vh;
+}
+form textarea {
+  height: 20vh;
+  width: 100px;
+}
+form textarea,
+form input {
+  width: 55%;
+  border-bottom: 2px solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+form #rgpd {
+  height: 2vh;
+  width: 3vw;
+}
+.articles .card_size {
+  width: 25vw;
+  max-height: 600px;
+  margin-top: 10vh;
+  overflow: hidden;
+}
+.articles img {
+  width: auto;
+  height: 300px;
+  max-height: 300px;
+  background-size: cover;
+}
+.article img {
+  width: 40%;
+}
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+.jumbotron-heading {
+  font-weight: 300;
+}
+.jumbotron .container {
+  max-width: 40rem;
+}
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+footer p {
+  margin-bottom: 0.25rem;
+}

@@ -1,0 +1,25 @@
+[
+{ 
+"id": 1,
+"author": "Tibo et Lolo",
+"date":"23 janvier 2032",
+"title": "Coffe Style !",
+"img" : "img/coffee.jpg",
+"body" :"Le café (de l'arabe القهوة : Elqahwah, boisson stimulante) est une boisson énergisante psychotrope stimulante, obtenue à partir des graines torréfiées de diverses variétés de caféier, de l'arbuste caféier, du genre Coffea. Il fait partie des trois principales boissons contenant de la caféine les plus consommées dans le monde, avec le thé et le maté. La culture du café est très développée dans de nombreux pays à climat tropical d'Amérique, d'Afrique et d'Asie, dans des plantations qui sont cultivées pour les marchés d'exportation du commerce international. Il représente souvent une contribution majeure pour l'économie des pays producteurs (économie du café)."},
+
+{
+"id" : 2,
+"author": "Tibo et Lolo",
+"date":"23 janvier 2042",
+"title": "Gangnam Style !",
+"img" : "img/psy.gif",
+"body" :"Gangnam Style (en coréen 강남 스타일 [kaŋnam sɯtʰail], translittération Gangnam Style, qui signifie littéralement Style de Gangnam, du nom de ce quartier de Séoul considéré comme le plus riche et le plus stylé de la région métropolitaine) est une chanson parodique du chanteur sud-coréen Psy, de son vrai nom Park Jai-Sang, cosignée avec Yoo Gun-Hyung. Le single est extrait de l'EP Psy 6 (Six Rules), Part 1 (2012). La chanson est connue pour son humour et son rythme accrocheur, accompagnés d'une chorégraphie insolite tirée de la célèbre vidéo'Evolution of Dance' publiée par Judson Laipply en 20065 (2:51 à 2:57). Le single sort le 15 juillet 20126 et entre directement numéro un du classement sud-coréen, le Gaon Chart. Il connaît ensuite un succès planétaire, particulièrement à travers sa diffusion sur les sites de partage vidéo, le clip officiel de la chanson devenant le plus visionné de l'histoire de YouTube, puis la première vidéo ayant dépassé le milliard de vues le 21 décembre 2012, puis les 2 milliards le 31 mai 20147. Gangnam Style est détrôné au classement du nombre de vues le 11 juillet 2017 par le clip See you again de Wiz Khalifa et Charlie Puth après cinq ans à sa tête8. (Wikipedia)"},
+
+{
+"id" : 3,
+"author": "Tibo et Lolo",
+"date":"23 janvier 2052",
+"title" : "Life Style !",
+"img": "img/lifestyle.jpg",
+"body" :"Le mode de vie (ou style de vie, ou encore lifestyle en anglais) est la manière de vivre - d'être et de penser - d'une personne ou d'un groupe d'individus. ... Dans les sociétés industrialisées, le mode de vie est une notion qualitative : il désigne la façon dont les ménages utilisent leur pouvoir d'achat"}
+]
