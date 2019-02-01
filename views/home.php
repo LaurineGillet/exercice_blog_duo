@@ -9,7 +9,7 @@
 
    <?php
    if(isset($_SESSION['id'])){
-  echo 'Bonjour, vous êtes connecté';
+  echo "Bonjour ".$_SESSION['firstname'].", vous êtes connecté ";
   echo "<a href='index.php?stopsession=yes'> Se déconnecter </a>";
 }
 

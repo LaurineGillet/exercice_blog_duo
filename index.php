@@ -23,7 +23,7 @@ $_SESSION['firstname'] = $user['firstname'];
 $_SESSION['email'] = $user['email'];
 $_SESSION['password'] = isset($user['password']) ? $user['password'] : NULL;
 // si toutes les info sont valides et existent alors "connexion réussi"
-echo 'Connection réussie';	
+echo "Connection réussie";	
 	}else{
 		echo 'Mot de passe ou email incorrect';
 	} // affiche si oui ou non on est co

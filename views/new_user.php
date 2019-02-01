@@ -1,3 +1,6 @@
+<?php 
+if (isset($_SESSION['id'])){
+?> 
 <form method="post" enctype="multipart/form-data" action="index.php?action=new_user">
 	<input type="text" name="firstname" placeholder="Prénom">
 	<input type="text" name="lastname" placeholder="Nom">
@@ -6,3 +9,7 @@
 	<input type="text" name="level" placeholder="Niveau"><br>
 	<button type="submit" class='btn btn-sm btn-outline-secondary'> Je valide</button>
 </form>
+
+<?php 
+}
+?>
