@@ -1,6 +1,6 @@
 <?php 
-if (isset($_SESSION['id'])){
-?> 
+if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
+?>
 <form method="post" enctype="multipart/form-data" action="index.php?action=new_user">
 	<input type="text" name="firstname" placeholder="Prénom">
 	<input type="text" name="lastname" placeholder="Nom">

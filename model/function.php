@@ -95,8 +95,8 @@ function delete_one_post($bdd,$id) {
 }
 
 // Connexion
-function search_user ($bdd, $email, $password){
-	$reponse = $bdd->prepare('select A.id, A.firstname, A.lastname, A.email 
+function search_user ($bdd, $email, $password, $level){
+	$reponse = $bdd->prepare('select A.id, A.firstname, A.lastname, A.email, A.level
 		from authors as A 
 		where (A.email=? AND A.password=?)');
 	$reponse->execute(array($email, MD5($password)));

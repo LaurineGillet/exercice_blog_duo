@@ -15,14 +15,16 @@ require('model/function.php'); //permet de linker la page des functions
 
 if(isset($_POST['email']) && isset($_POST['password'])){
 	//boucle php, isset vérifie si l'élément existe
-	$user = search_user($bdd, $_POST['email'], $_POST['password']);
+	$user = search_user($bdd, $_POST['email'], $_POST['password'], $_POST['level']);
 	//ici on crée une variable qui récupère les infos de connexion
 	if ($user){
 $_SESSION['id'] = $user['id'];
 $_SESSION['firstname'] = $user['firstname'];
 $_SESSION['email'] = $user['email'];
+$_SESSION['level'] = $user['level'];
 $_SESSION['password'] = isset($user['password']) ? $user['password'] : NULL;
 // si toutes les info sont valides et existent alors "connexion réussi"
+ var_dump($_SESSION['level']);
 echo "Connection réussie";	
 	}else{
 		echo 'Mot de passe ou email incorrect';

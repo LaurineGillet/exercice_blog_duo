@@ -27,10 +27,13 @@ if(isset($_SESSION['id'])){
       echo '<li class="nav-item">';
         echo '<a class="nav-link" href="index.php?page=create">Créer un nouvel article</a>';
       echo'</li>';
+    }
+if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
       echo '<li class="nav-item">';
         echo '<a class="nav-link" href="index.php?page=new_user">Créer un nouvel utilisateur</a>';
       echo'</li>';
     }
+    
 ?>
 
     </ul>
