@@ -57,6 +57,10 @@ if(isset($_GET['action']) &&($_GET['action'])=="create"){
 	create_post ($bdd,$_POST['title'], $_POST['content'], $_POST['category'], $_POST['author'], $_FILES['file']);
 }
 
+if(isset($_GET['action']) &&($_GET['action'])=="new_user"){
+	create_user ($bdd, $_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['password'], $_POST['level']);
+}
+
 require('views/head.php');
 require('views/header.php');
 //importe le head et le header de la page
@@ -95,6 +99,12 @@ if (isset($_GET['page'])) {
 		$all_aut = search_all_authors($bdd);
 			require('views/create.php');
 			break;
+
+		case'new_user':
+		$all_aut = search_all_authors($bdd);
+			require('views/new_user.php');
+			break;
+
 	
 	}
 } else{

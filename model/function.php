@@ -104,4 +104,10 @@ function search_user ($bdd, $email, $password){
 	return $user;
 
 }
+
+function create_user ($bdd, $firstname, $lastname, $email, $password, $level) {
+    $reponse= $bdd->prepare("INSERT INTO authors(firstname, lastname, email, password, level) values(?,?,?,?,?)");
+    $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $email, MD5($password), $level));
+    $reponse->closeCursor();
+}
 ?>
