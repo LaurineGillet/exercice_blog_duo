@@ -1,7 +1,7 @@
 <?php 
 if (isset($_SESSION['id'])){
 ?> 
-<form method="post" action="index.php?action=create" enctype="multipart/form-data">
+<form method="post" action="create" enctype="multipart/form-data">
   <div class="form-group">
     <label>Titre:</label>
       <input name="title" type="title" class="form-control" id="exampleFormControlInput1" value="" >

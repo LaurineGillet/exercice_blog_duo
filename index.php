@@ -24,7 +24,7 @@ $_SESSION['email'] = $user['email'];
 $_SESSION['level'] = $user['level'];
 $_SESSION['password'] = isset($user['password']) ? $user['password'] : NULL;
 // si toutes les info sont valides et existent alors "connexion réussi"
- var_dump($_SESSION['level']);
+ // var_dump($_SESSION['level']);
 echo "Connection réussie";	
 	}else{
 		echo 'Mot de passe ou email incorrect';
@@ -47,6 +47,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'update' ){
 // on vérifie si il y a une action, et si l'action est "edition"
 update_one_post($bdd, $_POST['id'], $_POST['title'], $_POST['content'], $_POST['id_cat'], $_POST['id_authors']);
 echo"<script> alert('Bravo, tu as bien édité cet article');</script>";
+var_dump($_GET['action']);
 }
 
 if(isset($_GET['action']) &&($_GET['action'])=="supp"){

@@ -78,7 +78,7 @@ move_uploaded_file($file['tmp_name'], 'img/'.$new_name.'.'.$extension);
 function update_one_post($bdd,$id,$title,$content, $id_cat, $id_authors) {
 	$reponse = $bdd->prepare('update posts 
 	set title=?, content=?, id_cat=?, id_authors=?, updated_date=? where id=?');
-	$reponse -> execute(array($title,$content, $id_cat, $id_authors, date("Y-m-d H:i:s"), $id));
+	$reponse -> execute(array($title, $content, $id_cat, $id_authors, date("Y-m-d H:i:s"), $id));
 
 
 }

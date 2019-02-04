@@ -16,13 +16,13 @@ foreach ($all_posts as $value) {
               echo date("d-m-Y", strtotime($value['created_date']));
               echo "<div class='d-flex justify-content-between align-items-center'>
                 <div class='btn-group'>
-                  <button type='button' class='btn btn-sm btn-outline-secondary'><a href='index.php?page=article&id=".$value['id']."'>View</a></button>";
+                  <button type='button' class='btn btn-sm btn-outline-secondary'><a href='post-".$value['id']."'>View</a></button>";
                   
                    if(isset($_SESSION['id'])){ 
-                    echo "<button type='button' class='btn btn-sm btn-outline-secondary'><a href='index.php?page=edition&id=".$value['id']."'>Editer</a></button>";
+                    echo "<button type='button' class='btn btn-sm btn-outline-secondary'><a href='edition-".$value['id']."'>Editer</a></button>";
                   }
                     if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
-                  echo "<button type='button' class='btn btn-sm btn-outline-secondary'><a href='index.php?action=supp&id=".$value['id']."'>Supp</a></button>";};
+                  echo "<button type='button' class='btn btn-sm btn-outline-secondary'><a href='supp-".$value['id']."'>Supp</a></button>";};
 
                 echo "</div>
               </div>

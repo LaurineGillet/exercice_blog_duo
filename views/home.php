@@ -10,7 +10,7 @@
    <?php
    if(isset($_SESSION['id'])){
   echo "Bonjour ".$_SESSION['firstname'].", vous êtes connecté ";
-  echo "<a href='index.php?stopsession=yes'> Se déconnecter </a>";
+  echo "<a href='deconnexion'> Se déconnecter </a>";
 }
 
 else{

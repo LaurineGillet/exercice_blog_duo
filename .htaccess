@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^post-([0-9]+)$   index.php?page=article&id=$1 [L]
+
+RewriteRule ^articles$   index.php?page=articles [L]
+RewriteRule ^about$   index.php?page=about [L]
+RewriteRule ^contact$   index.php?page=contact [L]
+RewriteRule ^home$   index.php [L]
+
+RewriteRule ^edition-([0-9]+)$   index.php?page=edition&id=$1 [L]
+RewriteRule ^update$   index.php?action=update [L]
+
+RewriteRule ^supp-([0-9]+)$   index.php?action=supp&id=$1 [L]
+
+RewriteRule ^new-article$   index.php?page=create [L]
+RewriteRule ^create$   index.php?action=create [L]
+
+
+RewriteRule ^new_user$   index.php?page=new_user [L]
+
+RewriteRule ^deconnexion$   index.php?stopsession=yes [L]
+</IfModule>

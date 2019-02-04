@@ -1,7 +1,7 @@
 <?php 
 if (isset($_SESSION['id'])){
 ?> 
-<form method="post" action="index.php?action=update">
+<form method="post" action="update">
   <input type="hidden" name="id" value="<?php echo utf8_encode($one_post['id'])?>" >
   <div class="form-group">
     <label>Titre:</label>
