@@ -1,7 +1,7 @@
 <?php 
 if (isset($_SESSION['id'])){
 ?> 
-<form method="post" action="update">
+<form method="post" action="index.php?action=update">
   <input type="hidden" name="id" value="<?php echo utf8_encode($one_post['id'])?>" >
   <div class="form-group">
     <label>Titre:</label>
@@ -13,7 +13,7 @@ if (isset($_SESSION['id'])){
     <label for="exampleFormControlSelect1">Auteur:</label>
     <select name="id_authors" class="form-control" id="exampleFormControlSelect1">
 <?php foreach ($all_aut as $value) {
-  echo "<option>".$value['firstname']."</option>";
+  echo "<option value=".$value['id'].">".utf8_encode($value['firstname'])."</option>" ;
 }
 ?>
     </select>
@@ -22,7 +22,9 @@ if (isset($_SESSION['id'])){
     <label for="exampleFormControlSelect1">Catégorie:</label>
     <select name="id_cat" class="form-control" id="exampleFormControlSelect1" >
  <?php foreach ($all_cat as $value) {
-  echo utf8_encode("<option>".$value['name']."</option>") ;
+
+
+  echo "<option value=".$value['id'].">".utf8_encode($value['name'])."</option>" ;
 }
 ?>
     </select>

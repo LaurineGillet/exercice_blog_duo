@@ -9,7 +9,8 @@ if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
 	<input type="text" name="level" placeholder="Niveau"><br>
 	<button type="submit" class='btn btn-sm btn-outline-secondary'> Je valide</button>
 </form>
-
 <?php 
+
 }
 ?>
+

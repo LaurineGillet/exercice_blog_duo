@@ -68,18 +68,21 @@ $new_name=MD5($file['name'].time());
 $extension=end(explode('.',$file['name']));
 move_uploaded_file($file['tmp_name'], 'img/'.$new_name.'.'.$extension);
 
-    $reponse= $bdd->prepare("INSERT INTO posts(title, img, content, id_cat, id_authors, created_date, updated_date) values(?,?,?,?,?,?,?)");
+    $reponse= $bdd->prepare("INSERT INTO posts(title, img, content, id_cat, id_authors, created_date, updated_date) VALUES(?,?,?,?,?,?,?)");
     $reponse->execute(array(utf8_decode($title), $new_name.'.'.$extension, utf8_decode($content), $category, $author, date("Y-m-d H:i:s"), date("Y-m-d H:i:s")));
     $reponse->closeCursor();
     
 }
 
 //Editer un post
-function update_one_post($bdd,$id,$title,$content, $id_cat, $id_authors) {
-	$reponse = $bdd->prepare('update posts 
-	set title=?, content=?, id_cat=?, id_authors=?, updated_date=? where id=?');
-	$reponse -> execute(array($title, $content, $id_cat, $id_authors, date("Y-m-d H:i:s"), $id));
+// function update_one_post($bdd,$id,$title,$content) {
+// 	$reponse = $bdd->prepare('update posts 
+// 	set title=?, content=? where id=?');
+// 	$reponse -> execute(array($title,$content, $id));
 
+function update_one_post($bdd,$id,$title,$content, $id_cat, $id_authors) {
+    $reponse2 = $bdd->prepare('UPDATE posts SET title=?, content=?, id_cat=?, id_authors=?  WHERE id=?');
+    $reponse2 -> execute(array($title, $content, $id_cat, $id_authors, $id));
 
 }
 
@@ -110,4 +113,16 @@ function create_user ($bdd, $firstname, $lastname, $email, $password, $level) {
     $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $email, MD5($password), $level));
     $reponse->closeCursor();
 }
+function existing_email ($bdd, $email) {
+    
+   $reponse = $bdd->prepare('select A.email
+        from authors as A 
+        where (A.email=?)');
+    $reponse->execute(array($email));
+    $mail=$reponse->fetch();
+    return $mail;
+
+} 
+
 ?>
+
