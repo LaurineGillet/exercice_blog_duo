@@ -1,22 +1,5 @@
 <?php
 
-//afficher tous les articles sur la page de presentation
-function search_all_posts($bdd) {
-	$reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, p.id_authors, p.id_cat, a.firstname, c.name, p.alaune
-         from posts as p 
-         inner join authors as a on p.id_authors = a.id 
-         inner join categories as c on p.id_cat =c.id');
-//fonction permettant de récuperer les informations voulues dans la bdd
-    $reponse->execute();
-    $list_post = array();
-    while ($post = $reponse->fetch()) {
-     
-        $list_post[] = $post;
-    }
-    $reponse->closeCursor();
-    return $list_post;
-}
-
 // afficher/récuperer l'article selectionné précédemment
 function search_one_post($bdd,$id) {
 	$reponse2 = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name, p.alaune
@@ -49,6 +32,22 @@ function search_one_category($bdd,$id) {
 
 
 
+//afficher tous les articles sur la page de presentation
+function search_all_posts($bdd) {
+    $reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, p.id_authors, p.id_cat, a.firstname, c.name, p.alaune
+         from posts as p 
+         inner join authors as a on p.id_authors = a.id 
+         inner join categories as c on p.id_cat =c.id');
+//fonction permettant de récuperer les informations voulues dans la bdd
+    $reponse->execute();
+    $list_post = array();
+    while ($post = $reponse->fetch()) {
+     
+        $list_post[] = $post;
+    }
+    $reponse->closeCursor();
+    return $list_post;
+}
 
 function search_all_categories($bdd){
 	$reponse = $bdd->prepare('select c.id, c.name
@@ -76,20 +75,6 @@ function search_all_authors($bdd){
     return $list_aut;
 	
 }
-
-// afficher/récuperer l'article selectionné précédemment
-function search_one_post($bdd,$id) {
-    $reponse2 = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name
-         from posts as p
-         inner join authors as a on p.id_authors = a.id 
-         inner join categories as c on p.id_cat =c.id
-         where p.id=?');
-    $reponse2->execute(array($id));
-
-    $solo_post=$reponse2->fetch();
-    $reponse2->closeCursor();
-    // var_dump($solo_post);
-    return $solo_post;}
 
 
 function search_post_by_cat($bdd,$id) {

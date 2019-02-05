@@ -160,3 +160,6 @@ footer {
 footer p {
   margin-bottom: 0.25rem;
 }
+.centered {
+  width: 100%;
+}
