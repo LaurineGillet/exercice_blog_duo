@@ -18,12 +18,12 @@ foreach ($all_posts as $value) {
                 <div class='btn-group'>
                   <button type='button' class='btn btn-sm btn-outline-secondary'><a href='post-".$value['id']."'>View</a></button>";
                   
-                   if(isset($_SESSION['id'])){ 
+                   if(isset($_SESSION['id'])&& $_SESSION['id']==$value['id_authors']||$_SESSION['level'] == 1){ 
                     echo "<button type='button' class='btn btn-sm btn-outline-secondary'><a href='index.php?page=edition&id=".$value['id']."'>Editer</a></button>";
-                  }
-                    if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
-                  echo "<button type='button' class='btn btn-sm btn-outline-secondary'><a href='supp-".$value['id']."'>Supp</a></button>";};
-
+                     echo "<button type='button' class='btn btn-sm btn-outline-secondary'><a href='supp-".$value['id']."'>Supp</a></button>";};
+                  
+                  
+  
                 echo "</div>
               </div>
             </div>
