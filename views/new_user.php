@@ -5,6 +5,8 @@ if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
 	<input type="text" name="firstname" placeholder="Prénom">
 	<input type="text" name="lastname" placeholder="Nom">
 	<input type="email" name="email" placeholder="Email">
+	<input type="email" name="email" placeholder="Email">
+	<textarea> type="test" name="description" placeholder="Description"></textarea>
 	<input type="password" name="password" placeholder="Password">
 	<input type="text" name="level" placeholder="Niveau"><br>
 	<button type="submit" class='btn btn-sm btn-outline-secondary'> Je valide</button>

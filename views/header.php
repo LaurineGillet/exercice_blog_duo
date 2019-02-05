@@ -23,7 +23,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="articles">
+        <a class="nav-link " href="authors">
           Nos auteurs
         </a>
       </li>
