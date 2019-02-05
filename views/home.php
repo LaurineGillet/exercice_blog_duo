@@ -5,17 +5,20 @@
     Vous trouverez sur ce blog du contenu lié aux séries télévisées.</p>
   </div>
   <div class="aside">
-	  <span><img src="img/tilo.png"></span>
+	  
 
    <?php
    if(isset($_SESSION['id'])){
+    echo "<span><img src='img/".$_SESSION['img']."'></span>";
   echo "Bonjour ".$_SESSION['firstname'].", vous êtes connecté ";
   echo "<a href='deconnexion'> Se déconnecter </a>";
 }
 
 else{
 
- echo "<form method='POST' action='index.php?action=login'>",
+ echo "
+ <span><img src='img/tilo.png'></span>
+ <form method='POST' action='index.php?action=login'>",
        "<div class='form-group row'>",
           "<label for='inputEmail3' class='col-sm-2 col-form-label'></label>",
             '<div class="col-sm-10">',

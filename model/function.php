@@ -2,7 +2,7 @@
 
 //afficher tous les articles sur la page de presentation
 function search_all_posts($bdd) {
-	$reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, p.id_authors, p.id_cat, a.firstname, c.name
+	$reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, p.id_authors, p.id_cat, a.firstname, c.name, p.alaune
          from posts as p 
          inner join authors as a on p.id_authors = a.id 
          inner join categories as c on p.id_cat =c.id');
@@ -19,7 +19,7 @@ function search_all_posts($bdd) {
 
 // afficher/récuperer l'article selectionné précédemment
 function search_one_post($bdd,$id) {
-	$reponse2 = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name
+	$reponse2 = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name, p.alaune
          from posts as p
          inner join authors as a on p.id_authors = a.id 
          inner join categories as c on p.id_cat =c.id
@@ -94,7 +94,7 @@ function delete_one_post($bdd,$id) {
 
 // Connexion
 function search_user ($bdd, $email, $password){
-	$reponse = $bdd->prepare('select A.id, A.firstname, A.lastname, A.email, A.level
+	$reponse = $bdd->prepare('select *
 		from authors as A 
 		where (A.email=? AND A.password=?)');
 	$reponse->execute(array($email, MD5($password)));

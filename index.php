@@ -15,6 +15,7 @@ $_SESSION['id'] = $user['id'];
 $_SESSION['firstname'] = $user['firstname'];
 $_SESSION['email'] = $user['email'];
 $_SESSION['level'] = $user['level'];
+$_SESSION['img'] = $user['img'];
 // $_SESSION['password'] = isset($user['password']) ? $user['password'] : NULL;
 // si toutes les info sont valides et existent alors "connexion réussi"
  // var_dump($_SESSION['level']);
@@ -30,6 +31,10 @@ if(isset($_GET['stopsession'])&& ($_GET['stopsession']) =='yes'){
 	unset($_SESSION['id']);
 	unset($_SESSION['email']);
 	unset($_SESSION['password']);
+	unset($_SESSION['img']);
+	unset($_SESSION['firstname']);
+	unset($_SESSION['level']);
+
 	session_destroy();
 //on vérifie si la seession est fermée, si oui, on déconnecte l'id le mail et le mdp
 }
@@ -127,6 +132,7 @@ if (isset($_GET['page'])) {
 	
 	}
 } else{
+		$all_aut = search_all_authors($bdd);
 		require('views/home.php');
 		//page de base si les autres conditions ne sont pas réalisées
 	}
