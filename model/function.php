@@ -32,6 +32,22 @@ function search_one_post($bdd,$id) {
     return $solo_post;}
 
 
+function search_one_category($bdd,$id) {
+    $reponse2 = $bdd->prepare('select c.id, c.name
+         from categories as c
+         inner join authors as a on c.id_authors = a.id 
+         inner join categories as c on c.id_cat =c.id
+         where c.id=?');
+    $reponse2->execute(array($id));
+
+    $solo_post=$reponse2->fetch();
+    $reponse2->closeCursor();
+    // var_dump($solo_post);
+    return $solo_post;}
+
+
+
+
 
 function search_all_categories($bdd){
 	$reponse = $bdd->prepare('select c.id, c.name

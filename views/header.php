@@ -17,16 +17,26 @@
       <li class="nav-item">
         <a class="nav-link" href="contact">Contact</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href="articles">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
           Articles
-        </a>
+        </a> 
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="articles">Ensemble des articles</a>
+          <div class="dropdown-divider"></div>
+<?php
+foreach ($all_cat as $value) {
+          echo utf8_encode('<a class="dropdown-item" href="#">'.$value['name'].'</a>');}
+?>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="authors">
           Nos auteurs
         </a>
       </li>
+
+
 <?php 
 if(isset($_SESSION['id'])){ 
       echo '<li class="nav-item">';
