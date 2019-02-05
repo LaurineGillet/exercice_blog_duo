@@ -110,7 +110,7 @@ $extension=end(explode('.',$img['name']));
 move_uploaded_file($img['tmp_name'], 'img/'.$new_name.'.'.$extension);
 
     $reponse= $bdd->prepare("INSERT INTO authors(firstname, lastname, img, email, password, description, level) values(?,?,?,?,?,?,?)");
-    $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $img, $email, MD5($password), utf8_decode($description), $level));
+    $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $new_name.'.'.$extension, $email, MD5($password), utf8_decode($description), $level));
     $reponse->closeCursor();
 }
 
