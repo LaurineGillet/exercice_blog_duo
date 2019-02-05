@@ -1,5 +1,5 @@
 <section>
-<<<<<<< HEAD
+
  
 
   <?php 
@@ -53,7 +53,7 @@ echo ("
 
 
 <div class="card-columns">
->>>>>>> 8b11f3ed40d28ba082c53e5ed376ff9ca52d3004
+
 <?php 
 foreach ($all_posts as $value) {
   //fonction qui, pour chaque article devant être affiché sur la page,
