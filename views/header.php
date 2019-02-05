@@ -26,7 +26,7 @@
           <div class="dropdown-divider"></div>
 <?php
 foreach ($all_cat as $value) {
-          echo utf8_encode('<a class="dropdown-item" href="#">'.$value['name'].'</a>');}
+          echo utf8_encode('<a class="dropdown-item" href="categorie-'.$value['id'].'">'.$value['name'].'</a>');}
 ?>
         </div>
       </li>
