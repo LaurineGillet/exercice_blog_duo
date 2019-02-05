@@ -69,7 +69,7 @@ if(isset($_GET['action']) && ($_GET['action'])=="new_user"){
 		if ($email){
 				echo 'Email déjà utilisé';
 		}else{
-			create_user ($bdd, $_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['password'], $_POST['level']);
+			create_user ($bdd, $_POST['firstname'], $_POST['lastname'], $_FILES['img'], $_POST['email'], $_POST['password'], $_POST['description'], $_POST['level']);
 			echo "Enregistrement réussie";
 		}
 

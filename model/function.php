@@ -75,7 +75,7 @@ move_uploaded_file($file['tmp_name'], 'img/'.$new_name.'.'.$extension);
 }
 
 //Editer un post
-function update_one_post($bdd,$id,$title,$content, $id_cat, $id_authors) {
+function update_one_post($bdd, $id, $title, $content, $id_cat, $id_authors) {
     $reponse2 = $bdd->prepare('UPDATE posts SET title=?, content=?, id_cat=?, id_authors=?  WHERE id=?');
     $reponse2 -> execute(array($title, $content, $id_cat, $id_authors, $id));
 
@@ -104,10 +104,16 @@ function search_user ($bdd, $email, $password, $level){
 }
 
 function create_user ($bdd, $firstname, $lastname, $img, $email, $password, $description, $level) {
+
+$new_name=MD5($img['name'].time());
+$extension=end(explode('.',$img['name']));
+move_uploaded_file($img['tmp_name'], 'img/'.$new_name.'.'.$extension);
+
     $reponse= $bdd->prepare("INSERT INTO authors(firstname, lastname, img, email, password, description, level) values(?,?,?,?,?,?,?)");
-    $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $img, $email, MD5($password), $description, $level));
+    $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $img, $email, MD5($password), utf8_decode($description), $level));
     $reponse->closeCursor();
 }
+
 function existing_email ($bdd, $email) {
     
    $reponse = $bdd->prepare('select A.email
