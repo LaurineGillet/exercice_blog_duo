@@ -1,7 +1,8 @@
 <section>
 <div class="card-columns">
-<?php
-foreach ($post_by_cat as $value){
+<?php 
+var_dump($post_by_aut);
+foreach ($post_by_aut as $value){
   echo utf8_encode("
             <div class='card'>
             <img src='img/".$value['img']."' class='card-img-top'>

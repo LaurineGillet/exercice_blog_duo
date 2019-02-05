@@ -92,6 +92,11 @@ if (isset($_GET['page'])) {
 			require('views/authors.php');
 			break;
 
+		case 'articles_by_author':
+		$post_by_aut = search_post_by_aut($bdd,$_GET['id']);
+			require('views/articles_by_author.php');
+			break;
+
 		case'articles':
 				$all_posts = search_all_posts($bdd);
 				// var_dump($all_posts);
@@ -102,6 +107,11 @@ if (isset($_GET['page'])) {
 		$one_post = search_one_post($bdd,$_GET['id']);
 			require('views/article.php');
 			break;
+
+		case'categories':
+		$post_by_cat = search_post_by_cat($bdd,$_GET['id']);
+		require('views/categories.php');
+		break;
 
 		case'contact':
 			require('views/contact.php');

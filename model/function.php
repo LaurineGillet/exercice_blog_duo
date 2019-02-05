@@ -17,38 +17,6 @@ function search_all_posts($bdd) {
     return $list_post;
 }
 
-// afficher/récuperer l'article selectionné précédemment
-function search_one_post($bdd,$id) {
-	$reponse2 = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name
-         from posts as p
-         inner join authors as a on p.id_authors = a.id 
-         inner join categories as c on p.id_cat =c.id
-         where p.id=?');
-    $reponse2->execute(array($id));
-
-    $solo_post=$reponse2->fetch();
-    $reponse2->closeCursor();
-    // var_dump($solo_post);
-    return $solo_post;}
-
-
-function search_one_category($bdd,$id) {
-    $reponse2 = $bdd->prepare('select c.id, c.name
-         from categories as c
-         inner join authors as a on c.id_authors = a.id 
-         inner join categories as c on c.id_cat =c.id
-         where c.id=?');
-    $reponse2->execute(array($id));
-
-    $solo_post=$reponse2->fetch();
-    $reponse2->closeCursor();
-    // var_dump($solo_post);
-    return $solo_post;}
-
-
-
-
-
 function search_all_categories($bdd){
 	$reponse = $bdd->prepare('select c.id, c.name
 		from categories as c');
@@ -75,6 +43,49 @@ function search_all_authors($bdd){
     return $list_aut;
 	
 }
+
+// afficher/récuperer l'article selectionné précédemment
+function search_one_post($bdd,$id) {
+    $reponse2 = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name
+         from posts as p
+         inner join authors as a on p.id_authors = a.id 
+         inner join categories as c on p.id_cat =c.id
+         where p.id=?');
+    $reponse2->execute(array($id));
+
+    $solo_post=$reponse2->fetch();
+    $reponse2->closeCursor();
+    // var_dump($solo_post);
+    return $solo_post;}
+
+
+function search_post_by_cat($bdd,$id) {
+    $reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name, p.id_cat, p.id_authors from posts as p 
+        inner join authors as a on p.id_authors = a.id 
+        inner join categories as c on p.id_cat =c.id 
+        where c.id = ?');
+    $reponse->execute(array($id));
+    while ($cat = $reponse->fetch()) {
+     
+        $one_cat[] = $cat;
+    }
+    $reponse->closeCursor();
+    return $one_cat;}
+
+
+function search_post_by_aut($bdd,$id) {
+    $reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name, p.id_cat, p.id_authors from posts as p 
+        inner join authors as a on p.id_authors = a.id 
+        inner join categories as c on p.id_cat =c.id 
+        where a.id = ?');
+    $reponse->execute(array($id));
+    while ($post = $reponse->fetch()) {
+     
+        $one_post[] = $cat;
+    }
+    $reponse->closeCursor();
+    return $one_post;}
+
 
 // Créer un nouveau post
 function create_post ($bdd, $title, $content, $category, $author, $file){
