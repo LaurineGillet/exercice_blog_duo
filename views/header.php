@@ -22,6 +22,11 @@
           Articles
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link " href="authors">
+          Nos auteurs
+        </a>
+      </li>
 <?php 
 if(isset($_SESSION['id'])){ 
       echo '<li class="nav-item">';

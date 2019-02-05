@@ -85,18 +85,23 @@ if (isset($_GET['page'])) {
 			require('views/about.php');
 			break;
 			//boucle qui vérifie l'existence d'un url et affiche la page relative
+
+		case 'authors':
+			$all_aut = search_all_authors($bdd);
+			require('views/authors.php');
+			break;
+
 		case'articles':
 				$all_posts = search_all_posts($bdd);
-
 				// var_dump($all_posts);
 			require('views/articles.php');
 			break;
 			//idem pour page articles
 		case'article':
 		$one_post = search_one_post($bdd,$_GET['id']);
-		
 			require('views/article.php');
 			break;
+
 		case'contact':
 			require('views/contact.php');
 			break;
