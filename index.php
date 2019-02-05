@@ -76,6 +76,7 @@ if(isset($_GET['action']) && ($_GET['action'])=="new_user"){
 
 
 require('views/head.php');
+$all_cat = search_all_categories($bdd);
 require('views/header.php');
 //importe le head et le header de la page
 

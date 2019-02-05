@@ -1,6 +1,4 @@
 <section>
-
-
 <div class="card-columns">
 <?php 
 foreach ($all_posts as $value) {
@@ -28,8 +26,6 @@ foreach ($all_posts as $value) {
                 </div>
               </div>";
 };
-//strtotime permet d'afficher la date
-//on utilise $value pour chaque caractéristique d'un article
 ?>
 </div>
 </section>
