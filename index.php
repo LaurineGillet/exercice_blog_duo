@@ -1,11 +1,4 @@
 <?php
-// $users = file_get_contents("https://jsonplaceholder.typicode.com/posts");
-// $json = json_decode($users);
-// $json_article=json_decode($users, true);
-
-// $users = file_get_contents("model/articles.json"); 
-// $json = json_decode($users);
-// $json_article=json_decode($users, true);
 
 session_start();
 
@@ -15,14 +8,14 @@ require('model/function.php'); //permet de linker la page des functions
 
 if(isset($_GET['action']) && ($_GET['action'])=="login"){
 	//boucle php, isset vérifie si l'élément existe
-	$user = search_user($bdd, $_POST['email'], $_POST['password'], $_POST['level']);
+	$user = search_user($bdd, $_POST['email'], $_POST['password']);
 	//ici on crée une variable qui récupère les infos de connexion
 	if ($user){
 $_SESSION['id'] = $user['id'];
 $_SESSION['firstname'] = $user['firstname'];
 $_SESSION['email'] = $user['email'];
 $_SESSION['level'] = $user['level'];
-$_SESSION['password'] = isset($user['password']) ? $user['password'] : NULL;
+// $_SESSION['password'] = isset($user['password']) ? $user['password'] : NULL;
 // si toutes les info sont valides et existent alors "connexion réussi"
  // var_dump($_SESSION['level']);
 echo "Connection réussie";	
