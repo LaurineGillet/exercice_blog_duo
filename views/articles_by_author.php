@@ -1,7 +1,6 @@
 <section>
 <div class="card-columns">
 <?php 
-var_dump($post_by_aut);
 foreach ($post_by_aut as $value){
   echo utf8_encode("
             <div class='card'>

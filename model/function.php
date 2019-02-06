@@ -91,15 +91,16 @@ function search_post_by_cat($bdd,$id) {
     return $one_cat;}
 
 
+
 function search_post_by_aut($bdd,$id) {
     $reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name, p.id_cat, p.id_authors from posts as p 
         inner join authors as a on p.id_authors = a.id 
         inner join categories as c on p.id_cat =c.id 
-        where a.id = ?');
+        where p.id_authors = ?');
     $reponse->execute(array($id));
     while ($post = $reponse->fetch()) {
      
-        $one_post[] = $cat;
+        $one_post[] = $post;
     }
     $reponse->closeCursor();
     return $one_post;}
