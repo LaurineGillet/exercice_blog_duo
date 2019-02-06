@@ -58,7 +58,14 @@ echo"<script> alert('Attention tu vas supprimer cet article');</script>";
 
 if(isset($_GET['action']) &&($_GET['action'])=="create"){
 	create_post ($bdd,$_POST['title'], $_POST['content'], $_POST['category'], $_POST['author'], $_FILES['file']);
+var_dump($_POST);
 }
+
+if(isset($_GET['action']) && ($_GET['action'])=="create_com"){
+	create_comment ($bdd, $_POST['content'], $_POST['author'], $_POST['posts']);
+	var_dump($_POST);
+}
+
 
 
 if(isset($_GET['action']) && ($_GET['action'])=="new_user"){
@@ -72,11 +79,6 @@ if(isset($_GET['action']) && ($_GET['action'])=="new_user"){
 		}
 
 }
-
-
-
-
-
 
 
 
@@ -109,6 +111,7 @@ if (isset($_GET['page'])) {
 			break;
 			//idem pour page articles
 		case'article':
+		$comment_by_post = search_com_by_post($bdd,$_GET['id']);
 		$one_post = search_one_post($bdd,$_GET['id']);
 			require('views/article.php');
 			break;

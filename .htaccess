@@ -14,6 +14,8 @@ RewriteRule ^home$   index.php [L]
 RewriteRule ^supp-([0-9]+)$   index.php?action=supp&id=$1 [L]
 RewriteRule ^new-article$   index.php?page=create [L]
 RewriteRule ^create$   index.php?action=create [L]
+RewriteRule ^create_com$   index.php?action=create_com [L]
+
 
 
 RewriteRule ^new_user$   index.php?page=new_user [L]

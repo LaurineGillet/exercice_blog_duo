@@ -106,6 +106,20 @@ function search_post_by_aut($bdd,$id) {
     return $one_post;}
 
 
+function search_com_by_post($bdd,$id) {
+    $reponse = $bdd->prepare('select c.id, c.content, c.author, c.created_date, c.id_posts
+        from comments as c 
+        inner join posts as p on c.id_posts = p.id 
+        where p.id=?');
+    $reponse->execute(array($id));
+    while ($com = $reponse->fetch()) {
+     
+        $one_com[] = $com;
+    }
+    $reponse->closeCursor();
+    return $one_com;}
+
+
 // Créer un nouveau post
 function create_post ($bdd, $title, $content, $category, $author, $file){
 // var_dump($file);
@@ -119,6 +133,12 @@ move_uploaded_file($file['tmp_name'], 'img/'.$new_name.'.'.$extension);
     $reponse->closeCursor();
     
 }
+
+function create_comment ($bdd, $content, $author, $posts){
+    $reponse= $bdd->prepare("INSERT INTO posts(content, author, created_date, id_posts ) VALUES(?,?,?,?)");
+    $reponse->execute(array(utf8_decode($content), $author, date("Y-m-d H:i:s"), $posts));
+    $reponse->closeCursor();}
+
 
 //Editer un post
 function update_one_post($bdd, $id, $title, $content, $id_cat, $id_authors) {
@@ -159,6 +179,7 @@ move_uploaded_file($img['tmp_name'], 'img/'.$new_name.'.'.$extension);
     $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $new_name.'.'.$extension, $email, MD5($password), utf8_decode($description), $level));
     $reponse->closeCursor();
 }
+
 
 function existing_email ($bdd, $email) {
     
