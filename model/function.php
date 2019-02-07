@@ -1,22 +1,5 @@
 <?php
 
-//afficher tous les articles sur la page de presentation
-function search_all_posts($bdd) {
-	$reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, p.id_authors, p.id_cat, a.firstname, c.name, p.alaune
-         from posts as p 
-         inner join authors as a on p.id_authors = a.id 
-         inner join categories as c on p.id_cat =c.id');
-//fonction permettant de récuperer les informations voulues dans la bdd
-    $reponse->execute();
-    $list_post = array();
-    while ($post = $reponse->fetch()) {
-     
-        $list_post[] = $post;
-    }
-    $reponse->closeCursor();
-    return $list_post;
-}
-
 // afficher/récuperer l'article selectionné précédemment
 function search_one_post($bdd,$id) {
 	$reponse2 = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name, p.alaune
@@ -49,6 +32,22 @@ function search_one_category($bdd,$id) {
 
 
 
+//afficher tous les articles sur la page de presentation
+function search_all_posts($bdd) {
+    $reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, p.id_authors, p.id_cat, a.firstname, c.name, p.alaune
+         from posts as p 
+         inner join authors as a on p.id_authors = a.id 
+         inner join categories as c on p.id_cat =c.id');
+//fonction permettant de récuperer les informations voulues dans la bdd
+    $reponse->execute();
+    $list_post = array();
+    while ($post = $reponse->fetch()) {
+     
+        $list_post[] = $post;
+    }
+    $reponse->closeCursor();
+    return $list_post;
+}
 
 function search_all_categories($bdd){
 	$reponse = $bdd->prepare('select c.id, c.name
@@ -91,18 +90,34 @@ function search_post_by_cat($bdd,$id) {
     return $one_cat;}
 
 
+
 function search_post_by_aut($bdd,$id) {
     $reponse = $bdd->prepare('select p.id, p.created_date, p.img, p.title, p.content, a.firstname, c.name, p.id_cat, p.id_authors from posts as p 
         inner join authors as a on p.id_authors = a.id 
         inner join categories as c on p.id_cat =c.id 
-        where a.id = ?');
+        where p.id_authors = ?');
     $reponse->execute(array($id));
     while ($post = $reponse->fetch()) {
      
-        $one_post[] = $cat;
+        $one_post[] = $post;
     }
     $reponse->closeCursor();
     return $one_post;}
+
+
+function search_com_by_post($bdd,$id) {
+    $reponse = $bdd->prepare('select c.id, c.content, c.author, c.created_date, c.id_posts
+        from comments as c 
+        inner join posts as p on c.id_posts = p.id 
+        where p.id=?');
+    $reponse->execute(array($id));
+    while ($com = $reponse->fetch()) {
+     
+        $one_com[] = $com;
+    }
+    $reponse->closeCursor();
+    return $one_com;
+}
 
 
 // Créer un nouveau post
@@ -118,6 +133,12 @@ move_uploaded_file($file['tmp_name'], 'img/'.$new_name.'.'.$extension);
     $reponse->closeCursor();
     
 }
+
+function create_comment ($bdd, $content, $author, $posts){
+    $reponse= $bdd->prepare("INSERT INTO comments(content, author, created_date, id_posts ) VALUES(?,?,?,?)");
+    $reponse->execute(array(utf8_decode($content), utf8_decode($author), date("Y-m-d H:i:s"), $posts));
+    $reponse->closeCursor();}
+
 
 //Editer un post
 function update_one_post($bdd, $id, $title, $content, $id_cat, $id_authors) {
@@ -149,7 +170,6 @@ function search_user ($bdd, $email, $password){
 }
 
 function create_user ($bdd, $firstname, $lastname, $img, $email, $password, $description, $level) {
-
 $new_name=MD5($img['name'].time());
 $extension=end(explode('.',$img['name']));
 move_uploaded_file($img['tmp_name'], 'img/'.$new_name.'.'.$extension);
@@ -158,6 +178,7 @@ move_uploaded_file($img['tmp_name'], 'img/'.$new_name.'.'.$extension);
     $reponse->execute(array(utf8_decode($firstname), utf8_decode($lastname), $new_name.'.'.$extension, $email, MD5($password), utf8_decode($description), $level));
     $reponse->closeCursor();
 }
+
 
 function existing_email ($bdd, $email) {
     

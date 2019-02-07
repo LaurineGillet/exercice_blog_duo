@@ -2,19 +2,14 @@
 if (isset($_SESSION['id'])){
 ?> 
 <form method="post" action="create" enctype="multipart/form-data">
+  <?php
+  echo '<input name="author" type="hidden" value="'.$_SESSION['id'].'">';
+?>
   <div class="form-group">
     <label>Titre:</label>
       <input name="title" type="title" class="form-control" id="exampleFormControlInput1" value="" >
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Auteur:</label>
-    <select name="author" class="form-control" id="exampleFormControlSelect1">
-<?php foreach ($all_aut as $value) {
-  echo "<option value=".$value['id'].">".$value['firstname']."</option>";
-}
-?>
-    </select>
-  </div>
+ 
   <div class="form-group">
     <label for="exampleFormControlSelect1">Catégorie:</label>
     <select name="category" class="form-control" id="exampleFormControlSelect1" >

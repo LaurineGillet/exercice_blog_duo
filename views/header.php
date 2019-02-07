@@ -39,14 +39,29 @@ foreach ($all_cat as $value) {
 
 <?php 
 if(isset($_SESSION['id'])){ 
-      echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="new-article">Créer un nouvel article</a>';
-      echo'</li>';
+      echo '<li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
+          Interface utilisateur
+      </a> 
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="profil">Mon profil</a>
+        <a class="dropdown-item" href="new-article">Créer un nouvel article</a>
+      </div>
+    </li>';
     }
+
 if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
-      echo '<li class="nav-item">';
-        echo '<a class="nav-link" href="new_user">Créer un nouvel utilisateur</a>';
-      echo'</li>';
+
+      echo'<li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
+          Interface administration
+      </a> 
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="new_user">Créer un nouvel auteur</a>
+        <a class="dropdown-item" href="">Gérer les auteurs</a>
+        <a class="dropdown-item" href="">Gérer les posts</a>
+      </div>
+    </li>';
     }
     
 ?>
@@ -56,3 +71,5 @@ if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
 </nav>
 </header>
 <main>
+
+   
