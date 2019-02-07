@@ -1,6 +1,8 @@
 <section>
 <div class="card-columns">
 <?php 
+
+if ($post_by_aut > 0){
 foreach ($post_by_aut as $value){
   echo utf8_encode("
             <div class='card'>
@@ -22,8 +24,11 @@ foreach ($post_by_aut as $value){
   
                 echo "</div>
                 </div>
-              </div>";
-};
+              </div>";}
+}else{
+  echo "<p>Cet auteur n'a pas créé d'articles.</p>";
+}
+
 ?>
 </div>
 </section>

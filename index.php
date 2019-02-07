@@ -13,6 +13,8 @@ if(isset($_GET['action']) && ($_GET['action'])=="login"){
 	if ($user){
 $_SESSION['id'] = $user['id'];
 $_SESSION['firstname'] = $user['firstname'];
+$_SESSION['lastname'] = $user['lastname'];
+$_SESSION['description'] = $user['description'];
 $_SESSION['email'] = $user['email'];
 $_SESSION['level'] = $user['level'];
 $_SESSION['img'] = $user['img'];
@@ -45,25 +47,26 @@ if(isset($_GET['action']) && $_GET['action'] == 'update' ){
 	var_dump($_POST);
 // on vérifie si il y a une action, et si l'action est "edition"
 // update_one_post($bdd, $_POST['id'], $_POST['title'], $_POST['content']);
-update_one_post($bdd, $_POST['id'], $_POST['title'], $_POST['content'], $_POST['id_cat'], $_POST['id_authors']);
-echo"<script> alert('Bravo, tu as bien édité cet article');</script>";
+	update_one_post($bdd, $_POST['id'], $_POST['title'], $_POST['content'], $_POST['id_cat'], $_POST['id_authors']);
+	echo"<script> alert('Bravo, tu as bien édité cet article');</script>";
+	header('location:post-'.$_POST['id']);
 
 }
 
 if(isset($_GET['action']) &&($_GET['action'])=="supp"){
 	//on vérifie si il y a une action et si c'est l'action de supprimer
 	delete_one_post($bdd,$_GET['id']);
-echo"<script> alert('Attention tu vas supprimer cet article');</script>";
+	header('location:articles');
 }
 
 if(isset($_GET['action']) &&($_GET['action'])=="create"){
 	create_post ($bdd,$_POST['title'], $_POST['content'], $_POST['category'], $_POST['author'], $_FILES['file']);
-var_dump($_POST);
-var_dump($_FILES)
+	header('location:articles');
 }
 
 if(isset($_GET['action']) && ($_GET['action'])=="create_com"){
 	create_comment ($bdd, $_POST['content'], $_POST['author'], $_POST['posts']);
+	header('location:post-'.$_POST['posts']);
 }
 
 
@@ -92,26 +95,25 @@ if (isset($_GET['page'])) {
 			break;
 			//boucle qui vérifie l'existence d'un url et affiche la page relative
 
-		case 'authors':
-			$all_aut = search_all_authors($bdd);
-			require('views/authors.php');
+		case'article':
+		$comment_by_post = search_com_by_post($bdd,$_GET['id']);
+		$one_post = search_one_post($bdd,$_GET['id']);
+			require('views/article.php');
 			break;
 
+		case'articles':
+				$all_posts = search_all_posts($bdd);
+			require('views/articles.php');
+			break;
+	
 		case 'articles_by_author':
 		$post_by_aut = search_post_by_aut($bdd,$_GET['id']);
 			require('views/articles_by_author.php');
 			break;
 
-		case'articles':
-				$all_posts = search_all_posts($bdd);
-				// var_dump($all_posts);
-			require('views/articles.php');
-			break;
-			//idem pour page articles
-		case'article':
-		$comment_by_post = search_com_by_post($bdd,$_GET['id']);
-		$one_post = search_one_post($bdd,$_GET['id']);
-			require('views/article.php');
+		case 'authors':
+			$all_aut = search_all_authors($bdd);
+			require('views/authors.php');
 			break;
 
 		case'categories':
@@ -123,6 +125,12 @@ if (isset($_GET['page'])) {
 			require('views/contact.php');
 			break;
 
+		case'create':
+			$all_cat = search_all_categories($bdd);
+			$all_aut = search_all_authors($bdd);
+			require('views/create.php');
+			break;
+
 		case'edition':
 		$all_cat = search_all_categories($bdd);
 		$all_aut = search_all_authors($bdd);
@@ -130,17 +138,14 @@ if (isset($_GET['page'])) {
 			require('views/edition.php');
 			break;
 
-		case'create':
-		$all_cat = search_all_categories($bdd);
-		$all_aut = search_all_authors($bdd);
-			require('views/create.php');
+		case'my_profil':
+			require('views/my_profil.php');
 			break;
 
 		case'new_user':
 		$all_aut = search_all_authors($bdd);
 			require('views/new_user.php');
 			break;
-
 	
 	}
 } else{

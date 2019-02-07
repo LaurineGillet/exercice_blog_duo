@@ -171,7 +171,6 @@ function search_user ($bdd, $email, $password){
 }
 
 function create_user ($bdd, $firstname, $lastname, $img, $email, $password, $description, $level) {
-
 $new_name=MD5($img['name'].time());
 $extension=end(explode('.',$img['name']));
 move_uploaded_file($img['tmp_name'], 'img/'.$new_name.'.'.$extension);
