@@ -67,10 +67,8 @@ if(isset($_GET['action']) && ($_GET['action'])=="create_com"){
 }
 
 
-
 if(isset($_GET['action']) && ($_GET['action'])=="new_user"){
 	$email = existing_email($bdd, $_POST['email']);
-	var_dump($email);
 		if ($email){
 				echo 'Email déjà utilisé';
 		}else{

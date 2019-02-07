@@ -117,7 +117,8 @@ function search_com_by_post($bdd,$id) {
         $one_com[] = $com;
     }
     $reponse->closeCursor();
-    return $one_com;}
+    return $one_com;
+}
 
 
 // Créer un nouveau post
@@ -135,8 +136,8 @@ move_uploaded_file($file['tmp_name'], 'img/'.$new_name.'.'.$extension);
 }
 
 function create_comment ($bdd, $content, $author, $posts){
-    $reponse= $bdd->prepare("INSERT INTO posts(content, author, created_date, id_posts ) VALUES(?,?,?,?)");
-    $reponse->execute(array(utf8_decode($content), $author, date("Y-m-d H:i:s"), $posts));
+    $reponse= $bdd->prepare("INSERT INTO comments(content, author, created_date, id_posts ) VALUES(?,?,?,?)");
+    $reponse->execute(array(utf8_decode($content), utf8_decode($author), date("Y-m-d H:i:s"), $posts));
     $reponse->closeCursor();}
 
 
