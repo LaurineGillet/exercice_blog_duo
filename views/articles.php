@@ -13,7 +13,7 @@ if ((int)$value['alaune'] == 1) {
 
 echo ("
 <p> Article à la une:</p>
-  <div class='mx-auto '>
+
   <div class='card'>
             <img src='img/".$value['img']."' class='card-img-top'>
             <div class='card-body'>
@@ -37,7 +37,7 @@ echo ("
   
                 echo ("</div>
                 </div>
-              </div>
+          
 </div>");
             
            
@@ -46,10 +46,7 @@ echo ("
 //strtotime permet d'afficher la date
 //on utilise $value pour chaque caractéristique d'un article
 }?>
-<div class="card-columns">
 
-
-=======
 
 
 <div class="card-columns">
