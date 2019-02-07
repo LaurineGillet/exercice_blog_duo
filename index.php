@@ -59,11 +59,11 @@ echo"<script> alert('Attention tu vas supprimer cet article');</script>";
 if(isset($_GET['action']) &&($_GET['action'])=="create"){
 	create_post ($bdd,$_POST['title'], $_POST['content'], $_POST['category'], $_POST['author'], $_FILES['file']);
 var_dump($_POST);
+var_dump($_FILES)
 }
 
 if(isset($_GET['action']) && ($_GET['action'])=="create_com"){
 	create_comment ($bdd, $_POST['content'], $_POST['author'], $_POST['posts']);
-	var_dump($_POST);
 }
 
 

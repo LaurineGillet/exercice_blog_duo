@@ -31,6 +31,9 @@ if ($comment_by_post > 0){
 </div>
 
 <form method="post" action="create_com" enctype="multipart/form-data">
+<?php
+	echo '<input name="posts" type="hidden" value="'.$one_post['id'].'">';
+?>
 	<input type="text" name="author" placeholder="Votre pseudo">
 	<textarea name="content"></textarea>
 	<button type="submit">Envoyer le commentaire</button>
