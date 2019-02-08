@@ -36,6 +36,16 @@ header nav ul li a {
 header nav li:hover {
   background-color: #009688;
 }
+#profil .profil_card {
+  display: flex;
+  margin-bottom: 2vh;
+  padding: 2vh 1vw 2vh 1vw;
+  border: solid 2px #00796b;
+}
+#profil .profil_card img {
+  width: 15vw;
+  margin-right: 2vw;
+}
 .container {
   display: inline-flex;
   margin-top: 3%;
