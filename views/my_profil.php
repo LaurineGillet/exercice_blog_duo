@@ -1,4 +1,4 @@
-<section id="profil">
+<section id="profil">	
 
 <?php 
 	echo'<h2>Profil de '.$_SESSION['firstname'].' '.$_SESSION['lastname'].'</h2>
@@ -17,9 +17,10 @@
 			<div>
 				<h3>Mes articles:</h3>
 				<ul>';
-if ($post_by_aut > 0){
+
+if (isset($_SESSION['id']) == $post_by_aut > 0){
 	foreach ($post_by_aut as $value)
-	{echo utf8_encode('<li><a href="post-'.$_SESSION['id'].'">'.$value['title'].'</a>/<li>');}
+	{echo utf8_encode('<li><a href="post-'.$value['id'].'">'.$value['title'].'</a>/<li>');}
   	}else{
   echo "<li>Je n'ai pas encore écrit d'article.</li>";
 }
@@ -42,4 +43,6 @@ if ($post_by_aut > 0){
 	</div>
 	</form>
 </section>
-
+<?php 
+var_dump($_SESSION['id']);
+var_dump($post_by_aut);
