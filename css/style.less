@@ -1,59 +1,86 @@
-html {
+html 
+{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
 }
 
 
-  body {
+body 
+{
 
    
     list-style: none;
     text-decoration: none;
 }
 
-main {
+main 
+{
 	margin-left: 3%;
 	margin-right: 3%;
 	margin-top: 3%;
 }
 
-ul {
+ul 
+{
 	margin-left: 5%;
 }
-			header{
-				background:  
-					linear-gradient(
-						  rgba(999, 999, 999, 0.65), 
-							rgba(999, 999, 999, 0.65)
-						),
-					url(../img/bamboo.jpg);
-				text-align: center;
+			
+header
+{
+	background:  
+	linear-gradient(
+		rgba(999, 999, 999, 0.65), 
+		rgba(999, 999, 999, 0.65)
+		),
+	url(../img/bamboo.jpg);
+	text-align: center;
 	
-				h1{
-					color: #00796b;
-					padding-top: 30px;
-					padding-bottom: 30px;
-					font-size: 6em;
-					font-family: 'Amatic SC', cursive;
-					font-weight: 700;
+		h1
+		{
+			color: #00796b;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			font-size: 6em;
+			font-family: 'Amatic SC', cursive;
+			font-weight: 700;
+		}
+
+		nav
+		{
+
+			font-variant: small-caps;
+
+				ul li a 
+				{
+					text-decoration: none;
 				}
-					
-				nav{
-					
-					font-variant: small-caps;
+
+				li:hover
+				{
+					background-color: #009688;
+				}
+		}	
+}
+
+#profil
+{
+	.profil_card
+	{
+		display: flex;
+		margin-bottom: 2vh;
+		padding: 2vh 1vw 2vh 1vw;
+		border: solid 2px #00796b;
+
+		img
+		{
+			width: 15vw;
+			margin-right: 2vw;
+		}
+	}
+
 	
-					ul li a {
-						text-decoration: none;
-						
-					}
-	
-					li:hover{
-						background-color: #009688;
-					}
-				}	
-			}
+}
 
 
 .container {
