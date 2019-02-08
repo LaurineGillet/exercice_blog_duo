@@ -63,7 +63,7 @@ if (isset($_GET['page'])) {
 			break;
 
 		case'articles':
-		require('controller/controller-allarticles.php');
+		require('controller/controller_allarticles.php');
 			break;
 	
 		case 'articles_by_author':
@@ -71,7 +71,7 @@ if (isset($_GET['page'])) {
 			break;
 
 		case 'authors':
-			require('controller/controller-searchaut.php');
+			require('controller/controller_searchaut.php');
 			break;
 
 		case'categories':

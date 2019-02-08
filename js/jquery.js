@@ -17,4 +17,5 @@ function afficher_cacher(id)
     return true;
 }
 };
+
 })
