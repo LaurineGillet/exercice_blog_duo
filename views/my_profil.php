@@ -19,7 +19,7 @@
 				<ul>';
 if ($post_by_aut > 0){
 	foreach ($post_by_aut as $value)
-	{echo utf8_encode('<li><a href="post-'.$value['id'].'">'.$value['title'].'</a>/<li>');}
+	{echo utf8_encode('<li><a href="post-'.$_SESSION['id'].'">'.$value['title'].'</a>/<li>');}
   	}else{
   echo "<li>Je n'ai pas encore écrit d'article.</li>";
 }
