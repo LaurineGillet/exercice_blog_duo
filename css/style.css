@@ -1,7 +1,12 @@
-html {
+* {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+section {
+  margin-bottom: 5vh;
 }
 body {
   list-style: none;
@@ -52,28 +57,17 @@ header nav li:hover {
 }
 .container .article {
   width: 65vw;
-  height: 500px;
-  background: green;
-  min-width: 400px;
 }
 .container .aside {
   width: 20vw;
-  margin-left: 5%;
-  max-height: 600px;
-  min-height: 200px;
-  min-width: 200px;
   border: 4px #00796b solid;
   position: fixed;
   left: 70vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-content: space-between;
+  padding: 2vh 2vw 2vh 2vw;
 }
 .container .aside img {
   width: 15vw;
-  margin-left: 12.5%;
-  margin-top: 12.5%;
+  margin-bottom: 2vh;
   height: auto;
 }
 .bouton {
@@ -162,13 +156,6 @@ form #rgpd {
 }
 .jumbotron .container {
   max-width: 40rem;
-}
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-footer p {
-  margin-bottom: 0.25rem;
 }
 .centered {
   width: 100%;
