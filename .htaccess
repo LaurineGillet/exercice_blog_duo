@@ -11,6 +11,8 @@ RewriteRule ^authors$   index.php?page=authors  [L]
 RewriteRule ^contact$   index.php?page=contact [L]
 RewriteRule ^home$   index.php [L]
 RewriteRule ^profil$   index.php?page=my_profil [L]
+RewriteRule ^gestion_articles$   index.php?page=gestion_articles [L]
+RewriteRule ^gestion_authors$   index.php?page=gestion_authors [L]
 
 
 RewriteRule ^supp-([0-9]+)$   index.php?action=supp&id=$1 [L]

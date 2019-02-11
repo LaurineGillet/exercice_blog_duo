@@ -1,7 +1,5 @@
 <section>
 
- 
-
   <?php 
 foreach ($all_posts as $value) {
   //fonction qui, pour chaque article devant être affiché sur la page,

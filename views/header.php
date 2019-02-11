@@ -59,8 +59,8 @@ if (isset($_SESSION['id']) && $_SESSION['level'] == 1){
       </a> 
       <div class="dropdown-menu">
         <a class="dropdown-item" href="new_user">Créer un nouvel auteur</a>
-        <a class="dropdown-item" href="">Gérer les auteurs</a>
-        <a class="dropdown-item" href="">Gérer les posts</a>
+        <a class="dropdown-item" href="gestion_authors">Gérer les auteurs</a>
+        <a class="dropdown-item" href="gestion_articles">Gérer les articles</a>
       </div>
     </li>';
     }
