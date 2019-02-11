@@ -6,7 +6,6 @@ require('model/connexion.php'); //permet de linker la page qui recup la bdd
 require('model/function.php'); //permet de linker la page des functions
 
 
-
 if(isset($_GET['action']) && ($_GET['action'])=="login"){
 require('controller/controller_login.php');
 }
@@ -54,20 +53,20 @@ require('views/header.php');
 if (isset($_GET['page'])) {
 	switch ($_GET['page']){
 		case'about':
-		require('controller/controller_about.php');
+			require('controller/controller_about.php');
 			break;
 			//boucle qui vérifie l'existence d'un url et affiche la page relative
 
 		case'article':
-		require('controller/controller_onepost.php');
+			require('controller/controller_onepost.php');
 			break;
 
 		case'articles':
-		require('controller/controller_allarticles.php');
+			require('controller/controller_allarticles.php');
 			break;
 	
 		case 'articles_by_author':
-		require('controller/controller_articlesbyaut.php');
+			require('controller/controller_articlesbyaut.php');
 			break;
 
 		case 'authors':
@@ -75,8 +74,8 @@ if (isset($_GET['page'])) {
 			break;
 
 		case'categories':
-		require('controller/controller_postbycat.php');
-		break;
+			require('controller/controller_postbycat.php');
+			break;
 
 		case'contact':
 		require('controller/controller_contact.php');
@@ -87,7 +86,7 @@ if (isset($_GET['page'])) {
 			break;
 
 		case'edition':
-	require('controller/controller_formeditpost.php');
+			require('controller/controller_formeditpost.php');
 			break;
 
 		case'my_profil':
@@ -95,7 +94,7 @@ if (isset($_GET['page'])) {
 			break;
 
 		case'new_user':
-		require('controller/controller_formnewuser.php');
+			require('controller/controller_formnewuser.php');
 			break;
 	
 	}

@@ -1,7 +1,9 @@
+<section>
 <div class="card-columns">
 	
 
 <?php
+
 foreach ($all_aut as $value){
  echo '<div class="card">',
  '<img src="img/'.$value['img'].'" class="card-img-top" alt="...">',
@@ -18,3 +20,4 @@ foreach ($all_aut as $value){
 ?>
 	
 </div>
+</section>

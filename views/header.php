@@ -9,13 +9,15 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home">Accueil<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="about">About</a>
+        <a class="nav-link" href="about">A propos</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact">Contact</a>
+        <li class="nav-item">
+        <a class="nav-link " href="authors">
+          Nos auteurs
+        </a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="articles" role="button" aria-haspopup="true" aria-expanded="false">
@@ -30,10 +32,9 @@ foreach ($all_cat as $value) {
 ?>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href="authors">
-          Nos auteurs
-        </a>
+    
+          <li class="nav-item">
+        <a class="nav-link" href="contact">Contact</a>
       </li>
 
 

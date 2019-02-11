@@ -38,6 +38,3 @@ if ($comment_by_post > 0){
 	<textarea name="content"></textarea>
 	<button type="submit">Envoyer le commentaire</button>
 </form>
-
-
-

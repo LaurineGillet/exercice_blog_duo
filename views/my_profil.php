@@ -1,4 +1,7 @@
+
 <?php
+<section id="profil">	
+
 
 echo "<section id='profil'>
 
@@ -34,10 +37,20 @@ if ($post_by_aut > 0) {
         echo "</p>
               <div class='btn-group'>
                     <button type='button' class='btn btn-sm btn-outline-secondary'><a href='post-".$value['id'].">View</a></button>'';
+
+				<ul>';
+
+if (isset($_SESSION['id']) == $post_by_aut > 0){
+	foreach ($post_by_aut as $value)
+	{echo utf8_encode('<li><a href="post-'.$value['id'].'">'.$value['title'].'</a>/<li>');}
+  	}else{
+  echo "<li>Je n'ai pas encore écrit d'article.</li>";
+
 }
 
 		<div>
 			<h2>Changer mon profil:</h2>
+
 			<form method='post' enctype='multipart/form-data' action=''>
 				<input type='text' name='firstname' placeholder='Prénom'>
 				<input type='text' name='lastname' placeholder='Nom'>
@@ -52,3 +65,33 @@ if ($post_by_aut > 0) {
  </section>";
     }
 } ?>
+
+			<form method="post" enctype="multipart/form-data" action="">
+				<div class="form-row">
+			    	<div class="col">
+						<input type="text" name="firstname" class="form-control" placeholder="Prénom">
+					</div>
+			    	<div class="col">
+						<input type="text" name="lastname" class="form-control" placeholder="Nom">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col">
+						<input type="email" name="email" class="form-control" placeholder="Email">
+					</div>
+					<div class="col">
+						<input type="password" name="password" class="form-control" placeholder="Password">
+					</div>
+				</div>
+				<textarea type="text" name="description" placeholder="Description"></textarea>
+				<div class="form-row">
+			    	<div class="col">
+						<input type="file"  name="img" class="form-control">
+					</div>
+					<div class="col">
+						<input type="text" name="level" class="form-control" placeholder="Niveau">
+					</div>
+				</div>
+				<button type="submit" class='btn btn-sm btn-outline-secondary'> Je valide</button>
+			</form>
+</section>
