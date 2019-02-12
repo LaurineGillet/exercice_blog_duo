@@ -28,6 +28,10 @@ if(isset($_GET['action']) &&($_GET['action'])=="supp"){
 require('controller/controller_supp_post.php');
 }
 
+if(isset($_GET['action']) &&($_GET['action'])=="delete_user"){
+require('controller/controller_supp_user.php');
+}
+
 
 if(isset($_GET['action']) &&($_GET['action'])=="create"){
 require('controller/controller_create_post.php');

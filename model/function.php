@@ -28,6 +28,15 @@ function search_one_category($bdd,$id) {
     // var_dump($solo_post);
     return $solo_post;}
 
+function search_one_aut($bdd,$id) {
+    $reponse = $bdd->prepare('select a.id, a.firstname, a.lastname, a.img, a.email, a.password, a.description, a.level
+        from authors as a
+        inner join posts as p on a.id = p.id_authors 
+        where a.id=?');
+    $reponse->execute(array($id));
+    $solo_post=$reponse->fetch();
+    $reponse->closeCursor();
+    return $solo_post;}
 
 
 
@@ -156,6 +165,15 @@ function delete_one_post($bdd,$id) {
 	$reponse3 -> execute(array($id));
 	$delete_post = $reponse3->fetch();
 	return $delete_post;
+}
+
+function delete_one_aut($bdd,$id) {
+    $my_aut = search_one_aut($bdd,$id);
+    unlink('img/'.$my_aut['img']);
+    $reponse = $bdd->prepare('delete from authors where posts.id=?');
+    $reponse -> execute(array($id));
+    $delete_aut = $reponse->fetch();
+    return $delete_aut;
 }
 
 // Connexion

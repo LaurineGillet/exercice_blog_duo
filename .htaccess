@@ -16,6 +16,7 @@ RewriteRule ^gestion_authors$   index.php?page=gestion_authors [L]
 
 
 RewriteRule ^supp-([0-9]+)$   index.php?action=supp&id=$1 [L]
+RewriteRule ^supp_user-([0-9]+)$   index.php?action=delete_user&id=$1 [L]
 RewriteRule ^new-article$   index.php?page=create [L]
 RewriteRule ^create$   index.php?action=create [L]
 RewriteRule ^create_com$   index.php?action=create_com [L]
