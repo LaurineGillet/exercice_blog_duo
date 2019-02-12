@@ -1,14 +1,3 @@
-
-
-<div class="container">
-  <div>
-    <h2>Bienvenue</h2>
-    <p>Vous voilà arrivez sur le Blog "Tibo et Lolo", objet d'étude et expérimentations dans le cadre de notre formation "Développeur Web - Web Mobile" effectuée via l'Aformac.<br>
-    Vous trouverez sur ce blog du contenu lié aux séries télévisées.</p>
-  </div>
-  <div class="aside">
-	  
-
 <section>
 
   	  

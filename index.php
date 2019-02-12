@@ -89,6 +89,14 @@ if (isset($_GET['page'])) {
 			require('controller/controller_formeditpost.php');
 			break;
 
+		case'gestion_articles':
+			require('controller/controller_gestion_articles.php');
+			break;
+
+		case'gestion_authors':
+			require('controller/controller_gestion_authors.php');
+			break;
+
 		case'my_profil':
 			require('controller/controller_formprofil.php');
 			break;
