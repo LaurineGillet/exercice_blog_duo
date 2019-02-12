@@ -28,7 +28,7 @@ if(isset($_GET['action']) &&($_GET['action'])=="supp"){
 require('controller/controller_supp_post.php');
 }
 
-if(isset($_GET['action']) &&($_GET['action'])=="delete_user"){
+if(isset($_GET['action']) &&($_GET['action'])=="supp_user"){
 require('controller/controller_supp_user.php');
 }
 

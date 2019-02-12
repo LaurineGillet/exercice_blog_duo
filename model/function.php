@@ -170,7 +170,7 @@ function delete_one_post($bdd,$id) {
 function delete_one_aut($bdd,$id) {
     $my_aut = search_one_aut($bdd,$id);
     unlink('img/'.$my_aut['img']);
-    $reponse = $bdd->prepare('delete from authors where posts.id=?');
+    $reponse = $bdd->prepare('delete from authors where authors.id=?');
     $reponse -> execute(array($id));
     $delete_aut = $reponse->fetch();
     return $delete_aut;

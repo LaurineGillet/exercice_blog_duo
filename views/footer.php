@@ -5,7 +5,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <footer class="navbar fixed-bottom bg-light">
-  	<p>© Laurine et Thibault . <a href="#">Mentions légales</a></p>
+  	<p>© Laurine et Thibault . <a href="#">Mentions légales</a> . <a href="http://12devs.fr/" target="_blank">L'armée des 12 devs</a></p>
     <p class="float-right"><a href="#"> Back to top</a></p>
  </footer>
 </body>

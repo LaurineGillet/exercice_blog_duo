@@ -11,7 +11,7 @@ foreach ($all_aut as $value) {
       			<td>
       				<div class="btn-group">
       					<button type="button" class="btn btn-sm btn-outline-secondary"><a href="'.$value['id'].'">Editer</a>
-            			<button type="button" class="btn btn-sm btn-outline-secondary"><a href="supp_user-'.$value['id'].'">Supp</a>
+            			<button type="button" class="btn btn-sm btn-outline-secondary" value="'.$value['id'].'"><a href="supp_user-'.$value['id'].'">Supp</a>
             			</button>
           			</div>
       			</td>
