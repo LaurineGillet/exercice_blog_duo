@@ -4,6 +4,7 @@ session_start();
 
 require('model/connexion.php'); //permet de linker la page qui recup la bdd
 require('model/function.php'); //permet de linker la page des functions
+require('model/class_post_query.php');
 
 
 if(isset($_GET['action']) && ($_GET['action'])=="login"){

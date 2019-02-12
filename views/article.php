@@ -1,3 +1,4 @@
+<section>
 <?php
 // Recupération tableau de tableau php
 // echo"<h2>" .$json_article[$_GET['id']-1]['title']. "</h2>";
@@ -38,3 +39,4 @@ if ($comment_by_post > 0){
 	<textarea name="content"></textarea>
 	<button type="submit">Envoyer le commentaire</button>
 </form>
+</section>

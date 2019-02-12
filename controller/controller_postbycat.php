@@ -1,6 +1,6 @@
 <?php
 
-$post_by_cat = search_post_by_cat($bdd,$_GET['id']);
+$post_by_cat = PostQuery::searchPostByCat($bdd,$_GET['id']);
 		require('views/categories.php');
 
 ?>
