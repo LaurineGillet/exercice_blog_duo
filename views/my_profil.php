@@ -1,19 +1,6 @@
-
-<section>
- <ul class="list-group list-group-flush">
-​
-<?php 
-foreach ($all_aut as $value) {
- echo utf8_encode( '<li class="list-group-item">'.$value['firstname'].' '.$value['lastname'].'</li>');
-}?>
- </ul>
-</section>
-Réduire 
-Sans titre 
 <section id='profil'>
-​
-<?php
-​
+​<?php
+
 	echo"<h2>Profil de ".$_SESSION['firstname']." ".$_SESSION['lastname']."</h2>
 	<div>
 		<div class='profil_card'>
@@ -30,7 +17,7 @@ Sans titre
 			<div>
 				<h3>Mes articles:</h3>
 				<ul>";
-​
+
 if (isset($_SESSION['id']) == $post_by_aut > 0)
 {
 	foreach ($post_by_aut as $value)
@@ -42,8 +29,8 @@ else
 {
  echo "<li>Je n'ai pas encore écrit d'article.</li>";
 }
-​
 ?>
+
 </div>
 </div>
 </div>
