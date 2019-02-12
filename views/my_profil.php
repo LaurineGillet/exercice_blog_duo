@@ -1,7 +1,19 @@
+
+<section>
+ <ul class="list-group list-group-flush">
+​
+<?php 
+foreach ($all_aut as $value) {
+ echo utf8_encode( '<li class="list-group-item">'.$value['firstname'].' '.$value['lastname'].'</li>');
+}?>
+ </ul>
+</section>
+Réduire 
+Sans titre 
 <section id='profil'>
-
+​
 <?php
-
+​
 	echo"<h2>Profil de ".$_SESSION['firstname']." ".$_SESSION['lastname']."</h2>
 	<div>
 		<div class='profil_card'>
@@ -18,7 +30,7 @@
 			<div>
 				<h3>Mes articles:</h3>
 				<ul>";
-
+​
 if (isset($_SESSION['id']) == $post_by_aut > 0)
 {
 	foreach ($post_by_aut as $value)
@@ -28,9 +40,9 @@ if (isset($_SESSION['id']) == $post_by_aut > 0)
 }
 else
 {
-  echo "<li>Je n'ai pas encore écrit d'article.</li>";
+ echo "<li>Je n'ai pas encore écrit d'article.</li>";
 }
-
+​
 ?>
 </div>
 </div>
@@ -39,10 +51,10 @@ else
 		<h2>Changer mon profil:</h2>
 		<form method="post" enctype="multipart/form-data" action="">
 			<div class="form-row">
-		    	<div class="form-group col-md-6">
+		  	<div class="form-group col-md-6">
 					<input type="text" name="firstname" class="form-control" placeholder="Prénom">
 				</div>
-			    <div class="form-group col-md-6">
+			  <div class="form-group col-md-6">
 					<input type="text" name="lastname" class="form-control" placeholder="Nom">
 				</div>
 			</div>
@@ -58,8 +70,8 @@ else
 				<textarea type="text" name="description" placeholder="Description"></textarea>
 			</div>
 			<div class="form-row">
-		    	<div class="form-group col-md-6">
-					<input type="file"  name="img" class="form-control">
+		  	<div class="form-group col-md-6">
+					<input type="file" name="img" class="form-control">
 				</div>
 				<div class="form-group col-md-6">
 					<input type="text" name="level" class="form-control" placeholder="Niveau">
